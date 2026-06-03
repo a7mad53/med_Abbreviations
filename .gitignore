@@ -7,8 +7,9 @@ dist/
 build/
 .eggs/
 
-# Data files (too large for git)
+# Data files (large CSVs)
 *.csv
+!MetainventoryAuxiliary_Version1.0.0_with_tui.csv
 
 # Environment
 .env
