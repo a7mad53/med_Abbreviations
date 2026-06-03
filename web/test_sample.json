@@ -1,0 +1,174 @@
+[
+  {
+    "sf": "IACPA",
+    "lf": "N(3)-iodoacetyl-2,3-diaminopropanoic acid"
+  },
+  {
+    "sf": "SIAMAAI",
+    "lf": "sarcosyl(1)-isoleucyl(5)-alpha-methylalanine angiotensin I"
+  },
+  {
+    "sf": "(123)I-MIBG scintigraphy",
+    "lf": "(123)I-metaiodobenzylguanidine scintigraphy"
+  },
+  {
+    "sf": "OACsA",
+    "lf": "O-acetyl C(9) cyclosporin A"
+  },
+  {
+    "sf": "BCECF",
+    "lf": "2',7'-bis(carboxyethyl)-5(6)-carboxyfluorescein"
+  },
+  {
+    "sf": "BCECF-AM",
+    "lf": "2',7'-bis-(2-carboxyethyl)-5(6)-carboxyfluorescein acetoxymethyl ester"
+  },
+  {
+    "sf": "MFTAHP",
+    "lf": "N(5)-methyl-N(5)-formyl-2,5,6-triamino-4-hydroxypyrimidine"
+  },
+  {
+    "sf": "[(18)F]-SFB",
+    "lf": "N-succinimidyl-4-(18)F-fluorobenzoate"
+  },
+  {
+    "sf": "(18)F-labelled",
+    "lf": "(18)fluorine-labeled"
+  },
+  {
+    "sf": "MIBI",
+    "lf": "(99m)Tc-Sestamibi"
+  },
+  {
+    "sf": "PPG",
+    "lf": "(RS)-4-phosphonophenylglycine"
+  },
+  {
+    "sf": "PAC",
+    "lf": "(R)-phenylacetylcarbinol"
+  },
+  {
+    "sf": "MDL",
+    "lf": "(R)-(+)-mandelonitrile lyase"
+  },
+  {
+    "sf": "EGlu",
+    "lf": "(2S)-alpha-ethylglutamic acid"
+  },
+  {
+    "sf": "EGlu",
+    "lf": "(2S)-alpha-ethylglutamate"
+  },
+  {
+    "sf": "S-cdA",
+    "lf": "(5'S)-8,5'-cyclo-2'-deoxyadenosine"
+  },
+  {
+    "sf": "BGP",
+    "lf": "bone γ-carboxyglutamic acid containing protein"
+  },
+  {
+    "sf": "BGP",
+    "lf": "bone γ-carboxyglutamic acid-containing protein"
+  },
+  {
+    "sf": "β-GP",
+    "lf": "βglycerophosphate"
+  },
+  {
+    "sf": "b[a]p",
+    "lf": "benzo[a]pyrene"
+  },
+  {
+    "sf": "CBDCA",
+    "lf": "cis-diammine 1,1-cyclobutane dicarboxylato[2]-0,0(1) platinum"
+  },
+  {
+    "sf": "CHIP",
+    "lf": "cis-dichlorotrans-dihydroxy-bis(isopropylamine) platinum[IV]"
+  },
+  {
+    "sf": "BS",
+    "lf": "bone scintigraphy"
+  },
+  {
+    "sf": "BS",
+    "lf": "bone scan"
+  },
+  {
+    "sf": "CAT-scan",
+    "lf": "computerised axial tomography scan"
+  },
+  {
+    "sf": "TA",
+    "lf": "acetate"
+  },
+  {
+    "sf": "ACH",
+    "lf": "acetylcholine chloride"
+  },
+  {
+    "sf": "AVC",
+    "lf": "aortic valve calcium"
+  },
+  {
+    "sf": "SBP",
+    "lf": "streptavidin binding peptide"
+  },
+  {
+    "sf": "SBP",
+    "lf": "streptavidin-binding peptide"
+  },
+  {
+    "sf": "SA",
+    "lf": "streptavidin"
+  },
+  {
+    "sf": "BCF1",
+    "lf": "(BALB/cxCBA)F1 mouse"
+  },
+  {
+    "sf": "BCF1",
+    "lf": "B6C3F1 mouse"
+  },
+  {
+    "sf": "BALB/neuT mouse",
+    "lf": "BALB/c mouse transgenic for neu"
+  },
+  {
+    "sf": "dAVP",
+    "lf": "1-deamino-Arg8-vasopressin"
+  },
+  {
+    "sf": "DALDA",
+    "lf": "D-Arg2,Lys4]dermorphin-(1-4)-amide"
+  },
+  {
+    "sf": "DMPEA",
+    "lf": "D-Met2,Pro5]enkephalinamide"
+  },
+  {
+    "sf": "aa",
+    "lf": "alcohol abuse"
+  },
+  {
+    "sf": "AA",
+    "lf": "alcohol-abuse"
+  },
+  {
+    "sf": "aa",
+    "lf": "aortic arch"
+  },
+  {
+    "sf": "AA",
+    "lf": "achievement age"
+  },
+  {
+    "sf": "AA",
+    "lf": "Alcoholics Anonymous"
+  },
+  {
+    "sf": "aa",
+    "lf": "aortic aneurysm"
+  }
+]

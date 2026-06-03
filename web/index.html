@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMOP Abbreviations Enrichment Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mesh-background"></div>
+    
+    <main class="container">
+        <header class="app-header">
+            <div class="logo">
+                <span class="pulse-ring"></span>
+                <span class="icon">🔬</span>
+            </div>
+            <h1>OMOP Clinical Abbreviations</h1>
+            <p class="subtitle">Enrich downloaded abbreviations with UMLS concept IDs and Semantic Types</p>
+        </header>
+
+        <!-- Configuration Card -->
+        <section class="card glass" id="config-card">
+            <h2>Configuration</h2>
+            <form id="config-form">
+                <div class="form-group">
+                    <label for="api-key">NLM UTS API Key</label>
+                    <input type="password" id="api-key" placeholder="Enter your NLM API Key..." required>
+                    <small>Get a free key at <a href="https://uts.nlm.nih.gov/uts/signup-login" target="_blank">UTS Portal</a></small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="csv-file">Select Abbreviations CSV File</label>
+                    <select id="csv-file" required>
+                        <option value="" disabled selected>Scanning directory for CSVs...</option>
+                    </select>
+                </div>
+                
+                <button type="submit" id="start-btn" class="btn btn-primary">Start Enrichment Process</button>
+            </form>
+        </section>
+
+        <!-- Stats Row -->
+        <section class="stats-row" id="stats-container" style="display: none;">
+            <div class="stat-card glass">
+                <div class="stat-value" id="stat-total">-</div>
+                <div class="stat-label">Total Records</div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-value" id="stat-missing">-</div>
+                <div class="stat-label">Initial Missing CUIs</div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-value highlight-green" id="stat-local">-</div>
+                <div class="stat-label">Resolved Locally (0 API Calls)</div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-value" id="stat-api">-</div>
+                <div class="stat-label">Required API Searches</div>
+            </div>
+        </section>
+
+        <!-- Progress Card -->
+        <section class="card glass" id="progress-card" style="display: none;">
+            <div class="progress-header">
+                <h3 id="progress-status">Running Enrichment...</h3>
+                <span class="percentage" id="progress-percent">0%</span>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+            </div>
+            
+            <div class="progress-details">
+                <p id="progress-text" class="status-msg">Initializing processing...</p>
+                <div class="timer" id="timer-text">Elapsed: 0s</div>
+            </div>
+        </section>
+
+        <!-- Live Matches Card -->
+        <section class="card glass" id="matches-card" style="display: none;">
+            <div class="matches-header">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="matched">
+                        <span class="tab-dot dot-green"></span>
+                        Mapped Concepts (<span id="matched-count">0</span>)
+                    </button>
+                    <button class="tab-btn" data-tab="unmatched">
+                        <span class="tab-dot dot-coral"></span>
+                        Unmatched Terms (<span id="unmatched-count">0</span>)
+                    </button>
+                </div>
+                <div class="status-indicator">
+                    <span class="dot pulse"></span>
+                    <span class="status-label">Monitoring pipeline...</span>
+                </div>
+            </div>
+
+            <!-- Mapped Tab -->
+            <div class="tab-pane active" id="pane-matched">
+                <div class="table-wrapper">
+                    <table class="matches-table">
+                        <thead>
+                            <tr>
+                                <th width="12%">SF</th>
+                                <th width="35%">LF (Long Form)</th>
+                                <th width="15%">CUI</th>
+                                <th width="13%">TUI</th>
+                                <th width="25%">Semantic Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="matches-tbody">
+                            <tr class="empty-row">
+                                <td colspan="5">Waiting for mapping events to stream...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Unmatched Tab -->
+            <div class="tab-pane" id="pane-unmatched" style="display: none;">
+                <div class="table-wrapper">
+                    <table class="matches-table">
+                        <thead>
+                            <tr>
+                                <th width="15%">SF</th>
+                                <th width="50%">LF (Long Form)</th>
+                                <th width="35%">Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody id="unmatched-tbody">
+                            <tr class="empty-row">
+                                <td colspan="3">Waiting for mapping events to stream...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completion Modal/Message -->
+        <section class="card glass success-card" id="success-card" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h2>Process Completed Successfully!</h2>
+            <p>Your clinical abbreviations file has been enriched and saved to:</p>
+            <code id="success-filepath">-</code>
+            <div class="success-summary">
+                <p>New columns <strong>TUI</strong> and <strong>Semantic_Type</strong> have been appended using pipe separators to maintain original format compatibility.</p>
+            </div>
+            <button class="btn btn-primary" onclick="window.location.reload()">Process Another File</button>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
